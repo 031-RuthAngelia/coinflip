@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="resources/favicon.ico"
+      type="image/x-icon"
+      sizes="96x96"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Flip the coin | devChallenges.io</title>
+
+    <!--You are welcome to delete these styles or modify them in your own stylesheet -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        justify-items: center;
+        background-color:rgb(55, 65, 81);
+        color: white;
+      }
+
+      body {
+        height: 100vh;
+      }
+
+      .main-page{
+        width: 100%;
+        height: 100%;
+        padding-top: 20%;
+        font-family: "Kanit", sans-serif;
+      }
+
+      .main-title{
+        font-size: 64px;
+        font-weight: 600;
+        text-shadow: 2px 2px 0px #35383f;
+        -webkit-text-stroke-width: 5px;
+        -webkit-text-stroke-color: #35383f;
+      }
+
+      p{
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      button{
+        width: 160px;
+        font-family: "Kanit", sans-serif;
+        font-size: 20px;
+        padding: 10px;
+        background-color: #1f6fb0;
+        border-radius: 10px;
+        font-weight: 600;
+      }
+
+      .author-info {
+        font-size: 14px;
+        text-align: center;
+        margin-top: 16px;
+        /* color: rgb(55, 65, 81); */
+      }
+
+      .author-info a {
+        text-decoration: none;
+      }
+
+      ul{
+        list-style-type: none;
+        margin: 20px;
+      }
+
+    </style>
+
+    
+  </head>
+  <body>
+    <!-- 
+
+    Flip a Coin Game
+    Press the coin or the button to flip the coin
+    Head
+    Tail
+    Random
+  
+    -->
+
+    <div class="main-page">
+      <h1 class="main-title">Flip the coin</h1>
+      <p>Press the coin or the button to flip the coin</p>
+      <ul>
+        <li>
+          <div class="container"></div>
+        </li>
+        <li>
+          <img class="coin-shadow" src="resources/shadow.svg" alt="">
+        </li>
+        <li>
+          <p id="result">Head</p>
+        </li>
+        <li>
+          <button id="button-random">RANDOM</button>
+        </li>
+      </ul>
+      
+    </div>
+
+    <div class="author-info">
+      Coded by <a href="#">Ruth</a> | Challenge by
+      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
+        >devChallenges.io</a
+      >
+    </div>
+
+    <script>
+      const button = document.getElementById("button-random");
+      const resultText = document.getElementById("result");
+      const container = document.querySelector(".container");
+
+      button.addEventListener("click", function () {
+        const result = Math.random() < 0.5 ? "Heads" : "Tails";
+        resultText.textContent = result;
+
+
+        container.innerHTML = "";
+
+
+        const img = document.createElement("img");
+        img.width = 150;
+
+        if (result === "Heads") {
+          img.src = "resources/heads.svg";
+          img.alt = "coin-heads";
+        } else {
+          img.src = "resources/tails.svg";
+          img.alt = "coin-tails";
+        }
+
+        container.appendChild(img);
+      });
+    </script>
+
+  </body>
+</html>
